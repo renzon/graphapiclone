@@ -1,0 +1,6 @@
+gaebusiness==2.6.0
+gaegraph==2.0.1
+mock==1.0.1
+mommygae==1.0
+pswdclient==0.4.1
+zenwarch==2.0
