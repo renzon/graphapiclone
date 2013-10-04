@@ -1,4 +1,5 @@
 *.py[cod]
+*~
 
 # C extensions
 *.so
@@ -6,17 +7,18 @@
 # Packages
 *.egg
 *.egg-info
-dist
+pyenv/dist
 build
-eggs
+pyenv/eggs
 parts
-bin
+pyenv/bin
 var
-sdist
-develop-eggs
+pyenv/sdist
+pyenv/develop-eggs
 .installed.cfg
-lib
-lib64
+pyenv/lib
+pyenv/lib64
+pyenv/local
 
 # Installer logs
 pip-log.txt
@@ -33,3 +35,4 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+.idea

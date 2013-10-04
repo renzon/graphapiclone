@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Graph Api Clone</title>
+
+</head>
+<body>
+<h3><a href="https://github.com/renzon/graphapiclone">Graph Api Clone</a></h3>
+API:<br/>
+
+<strong>Nodes:</strong> {{ nodes }}
+<strong>Arcs:</strong> {{ arcs }}
+<ul>
+    {% macro item(link,append='') %}
+        <li><a href="{{ link }}" target="_blank">{{ link }}/{{ append }}</a></li>
+    {% endmacro %}
+    {% for link,append in [('/rest/getall','"type"'),('/rest/find','"id"/"arc(optional)"'),('/rest/setarc','"arc"/"origin"/"destination"')] %}
+        {{ item(link,append) }}
+    {% endfor %}
+
+</ul>
+<h3>Mkt</h3>
+<ul>
+    {{ item('http://rupy.com.br') }}
+    {{ item('http://call4paperz.com/events/rupy-2013') }}
+    {{ item('http://adm.python.pro.br') }}
+</ul>
+</body>
+</html>
