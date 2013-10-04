@@ -2,8 +2,8 @@
 from __future__ import absolute_import, unicode_literals
 import json
 from gaegraph.business_base import DestinationsSearch, NodeSearch
-from gaegraph.model import to_node_key
-from graphapiclone.model import all_nodes_and_arcs, all_arcs, all_nodes
+from gaegraph.model import Arc, to_node_key
+from graphapiclone.model import all_arcs, all_nodes
 
 
 def __extract_dct(node):
@@ -35,8 +35,8 @@ def find(_resp, id, arc=None):
 
 def setarc(_resp, arc, origin_id, destination_id):
     arc_cls = all_arcs.get(arc)
-    arcs = DestinationsSearch(arc_cls, origin_id).execute().result
-    if arcs:
+    arc_count = Arc.query(Arc.origin == to_node_key(origin_id), Arc.destination == to_node_key(destination_id)).count()
+    if arc_count > 0:
         _resp.write("Arc already exists")
     else:
         arc_cls(origin=to_node_key(origin_id), destination=to_node_key(destination_id)).put()

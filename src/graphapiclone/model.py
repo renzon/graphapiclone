@@ -13,12 +13,21 @@ class Friend(Arc):
     type = 'friends'
 
 
-arc_classes = [Friend]
+class Album(Node):
+    type = 'album'
+    name = ndb.StringProperty(required=True)
+    description = ndb.StringProperty(required=True)
+
+
+class AlbumArc(Arc):
+    type = 'albums'
+
+
+arc_classes = [Friend, AlbumArc]
 all_arcs = {arc.type: arc for arc in arc_classes}
 
-all_node_classes = [User]
+all_node_classes = [User, Album]
 all_nodes = {arc.type: arc for arc in all_node_classes}
-
 
 all_nodes_and_arcs = dict(all_nodes)
 all_nodes_and_arcs.update(all_arcs)
